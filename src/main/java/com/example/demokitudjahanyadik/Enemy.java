@@ -1,19 +1,38 @@
 package com.example.demokitudjahanyadik;
-
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.SimpleIntegerProperty;
+import java.util.Random;
 
 public class Enemy {
+    private static Random random = new Random();
 
-        public void Fightsetter(String name, int powermin, int powermax, int health) {
-            enemyname = name;          //Enemy name
-            enemyweaponvalmin = powermin;   //Enemy min power
-            enemyweaponvalmax = powermax;   //Enemy max power
-            enemyhealth = health;        //Enemy health
-        }
+    private String name;     //Játékos neve
+    private int minimumDamage;  //min aktuális sebzés
+    private int maximumDamage;  //max aktuális sebzés
+    private int health;       //Aktuális életerő
 
-    public String enemyname = "RandomEnemy";     //Játékos neve
-    public int enemyweaponvalmin = 1;  //min aktuális sebzés
-    public int enemyweaponvalmax = 2;  //max aktuális sebzés
-    public int enemyhealth = 10;       //Aktuális életerő
+    public void receiveDamage(int damage) {
+        health -= damage;
+    }
+    public int dealDamage() {return random.nextInt(minimumDamage, maximumDamage + 1);}
+
+
+
+    public boolean isAlive() {
+        return health > 0;
+    }
+
+    public Enemy(String name, int powermin, int powermax, int health) {
+        this.name = name;          //Enemy name
+        minimumDamage = powermin;   //Enemy min power
+        maximumDamage = powermax;   //Enemy max power
+        this.health = health;        //Enemy health
+    }
+
+    public Enemy() {
+        this("RandomEnemy", 1, 2, 10);
+    }
+
+    public String getName() {
+        return name;
+    }
+    public int remainingHealth() {return health;}
 }

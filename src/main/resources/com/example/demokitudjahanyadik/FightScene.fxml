@@ -24,25 +24,25 @@
             </StackPane>
             <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1">
                <children>
-                  <Button fx:id="defendbutton" mnemonicParsing="false" text="Defend" />
+                  <Button fx:id="runbutton" mnemonicParsing="false" onAction="#OnRunClick" text="Run" />
                </children>
             </StackPane>
             <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <children>
-                  <Button fx:id="healbutton" mnemonicParsing="false" text="Heal" />
+                  <Button fx:id="healbutton" mnemonicParsing="false" onAction="#OnHealClick" text="Heal" visible="false" />
                </children></StackPane>
             <StackPane prefHeight="64.0" GridPane.rowIndex="1">
                <children>
-                  <Button fx:id="runbutton" mnemonicParsing="false" text="Run" />
+                  <Button fx:id="defendbutton" mnemonicParsing="false" text="Defend" visible="false" />
                </children>
             </StackPane>
          </children>
       </GridPane>
    </bottom>
    <left>
-      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+      <VBox alignment="CENTER" prefHeight="363.0" prefWidth="115.0" BorderPane.alignment="CENTER">
          <children>
-            <Label text="You" underline="true">
+            <Label fx:id="playername" text="You" underline="true">
                <padding>
                   <Insets bottom="20.0" />
                </padding>
@@ -50,27 +50,27 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label text="Sebzés:">
+            <Label fx:id="playerdamage" text="Sebzés:">
                <padding>
                   <Insets bottom="5.0" />
                </padding>
             </Label>
-            <Label text="Életerő:">
+            <Label fx:id="playerhealth" text="Életerő:">
                <padding>
                   <Insets bottom="5.0" />
                </padding>
             </Label>
-            <Label text="Kötszer:">
+            <Label fx:id="playerbandage" text="Kötszer:">
                <padding>
                   <Insets bottom="5.0" />
                </padding>
             </Label>
-            <Label text="Páncél:">
+            <Label fx:id="playershield" text="Páncél:">
                <padding>
                   <Insets bottom="5.0" />
                </padding>
             </Label>
-            <Label text="Label">
+            <Label fx:id="playerrunchance" text="Menekülés:">
                <padding>
                   <Insets bottom="5.0" />
                </padding>
@@ -80,7 +80,7 @@
    <right>
       <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
-            <Label text="Enemy" underline="true">
+            <Label fx:id="enemyname" text="Enemy" underline="true">
                <padding>
                   <Insets bottom="20.0" />
                </padding>
@@ -88,7 +88,7 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label text="Sebzés:">
+            <Label fx:id="enemydamage" text="Sebzés:">
                <padding>
                   <Insets bottom="5.0" />
                </padding>
@@ -104,7 +104,8 @@
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
             <Separator layoutX="-6.0" layoutY="345.0" prefHeight="9.0" prefWidth="537.0" />
-            <Label fx:id="textaction" layoutX="116.0" layoutY="123.0" prefHeight="131.0" prefWidth="321.0" text="Starttext" />
+            <Label fx:id="textaction" layoutX="105.0" layoutY="99.0" prefHeight="250.0" prefWidth="321.0" text="Starttext" />
+            <Button fx:id="exitbutton" layoutX="210.0" layoutY="281.0" mnemonicParsing="false" onAction="#OnExitClick" prefHeight="49.0" prefWidth="106.0" text="Exit fight" visible="false" />
          </children>
       </AnchorPane>
    </center>

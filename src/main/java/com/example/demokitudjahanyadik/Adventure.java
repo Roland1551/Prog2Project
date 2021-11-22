@@ -13,7 +13,7 @@ public class Adventure extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        window=stage;
+        window = stage;
         FXMLLoader helloLoader = new FXMLLoader(Adventure.class.getResource("hello-view.fxml"));
 
         Scene hello = new Scene(helloLoader.load(), 320, 240);
