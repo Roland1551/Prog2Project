@@ -6,7 +6,7 @@ public class Player {
 
     private String name="John";     //Játékos neve
     private int scrap=0;         //Barkács alapanyag
-    private int health=30;       //Aktuális életerő
+    private int health=10;       //Aktuális életerő
     private int bandage=1;       //Kötszerek száma
     private int bandagelvl=3;       //Kötszerek száma
     private int runlvl=50;         //Barkács alapanyag

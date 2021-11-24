@@ -42,6 +42,8 @@ public class AdventureController {
     public Label enemydamage;
     public Label enemyname;
 
+
+
     @FXML
     public void onExitButtonClick(ActionEvent event) throws IOException {
         System.exit(0);
@@ -50,17 +52,31 @@ public class AdventureController {
     public static Player player = new Player();
     public static Enemy enemy = new Enemy();
 
+
+   public void textRefresh(){
+        //PLAYERTEXT
+        playername.setText(player.getName());
+        playerhealth.setText("Életerő: "+player.remainingHealth());
+        playerbandage.setText("Kötszer: "+ player.remainingBandage());
+        playershield.setText("Páncél: "+ player.remainingShield()) ;
+        playerrunchance.setText("Menekülés: " + player.getRunLvl() +" %");
+        //ENEMY TEXT
+        enemyhealth.setText("Életerő: "+enemy.remainingHealth());
+        enemyname.setText(enemy.getName());
+    }
+
     @FXML
     protected void onStartButtonClick() throws IOException {
         //Átváltja a Scene-t a harcra
+
         FXMLLoader fightLoader = new FXMLLoader(Adventure.class.getResource("FightScene.fxml"));
         Scene fight = new Scene(fightLoader.load(), 537, 453);
         Adventure.window.setScene(fight);
         fightsetup();
     }
 
-    void fightsetup(){
-        enemy = new Enemy("Spider", 1, 2, 10);
+   void fightsetup(){
+        enemy = new Enemy("Kígyó", 1, 4, 10);
     }
 
     void exitfight(){
@@ -69,17 +85,6 @@ public class AdventureController {
         defendbutton.setVisible(false);
         runbutton.setVisible(false);
         healbutton.setVisible(false);
-    }
-
-
-    void textRefresh(){
-        playername.setText(player.getName());
-        playerhealth.setText("Életerő: "+player.remainingHealth());
-        playerbandage.setText("Kötszer: "+ player.remainingBandage());
-        playershield.setText("Páncél: "+ player.remainingShield()) ;
-        playerrunchance.setText("Menekülés: " + player.getRunLvl() +" %");
-       
-      //enemyhealth.setText("Életerő: "+enemy.remainingHealth());
     }
 
 
@@ -105,15 +110,16 @@ public class AdventureController {
             }
             textaction.setText(MessageUtils.getAttackMessage(enemy.getName(), attack, damage));
             textRefresh();
-/*
-        {
-            if (player.isAlive()) {
-                textaction.setText(MessageUtils.getWinMessage(enemy.getName()));
-            } else {
-                textaction.setText(MessageUtils.getLoseMessage(enemy.getName()));
 
+
+            if (player.isAlive()==true && enemy.isAlive()==false) {
+                textaction.setText(MessageUtils.getWinMessage(enemy.getName()));
+                exitfight();
+            } else if (player.isAlive()==false && enemy.isAlive()==true){
+                textaction.setText(MessageUtils.getLoseMessage(enemy.getName()));
+                exitfight();
             }
-            exitfight();*/
+
         }
 
    /* //DEFEND BUTTON

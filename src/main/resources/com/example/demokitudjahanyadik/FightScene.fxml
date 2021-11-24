@@ -93,7 +93,7 @@
                   <Insets bottom="5.0" />
                </padding>
             </Label>
-            <Label text="Életerő:">
+            <Label fx:id="enemyhealth" text="Életerő:">
                <padding>
                   <Insets bottom="5.0" />
                </padding>
@@ -104,7 +104,7 @@
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
             <Separator layoutX="-6.0" layoutY="345.0" prefHeight="9.0" prefWidth="537.0" />
-            <Label fx:id="textaction" layoutX="105.0" layoutY="99.0" prefHeight="250.0" prefWidth="321.0" text="Starttext" />
+            <Label fx:id="textaction" layoutX="105.0" layoutY="99.0" prefHeight="250.0" prefWidth="321.0" text="Megtámadod az ellenséget vagy megpróbálsz elmenekülni?" />
             <Button fx:id="exitbutton" layoutX="210.0" layoutY="281.0" mnemonicParsing="false" onAction="#OnExitClick" prefHeight="49.0" prefWidth="106.0" text="Exit fight" visible="false" />
          </children>
       </AnchorPane>
