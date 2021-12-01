@@ -4,7 +4,7 @@ import java.util.Random;
 public class Player {
     private static Random random = new Random();
 
-    private String name="John";     //Játékos neve
+    private String name="Roli";     //Játékos neve
     private int scrap=0;         //Barkács alapanyag
     private int health=10;       //Aktuális életerő
     private int bandage=1;       //Kötszerek száma
@@ -13,6 +13,7 @@ public class Player {
     private int shieldval=0;      //Páncél védelme
     private int minimumDamage=1;  //min aktuális sebzés
     private int maximumDamage=2;  //max aktuális sebzés
+
 
     //RUN
     public void increaseRunLvl() {
@@ -31,6 +32,13 @@ public class Player {
     public void receiveDamage(int damage) {health-=damage;}
     public int dealDamage() {return random.nextInt(minimumDamage, maximumDamage+1);}
     public void increaseDamage(int adddamage) {minimumDamage+=adddamage; maximumDamage+=adddamage;}
+
+    public int getMinimumDamage() {
+        return minimumDamage;
+    }
+    public int getMaximumDamage() {
+        return maximumDamage;
+    }
 
     //KÖTSZER
     public boolean hasBandage() {return bandage>0;}

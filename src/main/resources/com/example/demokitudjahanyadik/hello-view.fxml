@@ -15,5 +15,5 @@
          <Font size="24.0" />
       </font></Label>
     <Button fx:id="startbutton" onAction="#onStartButtonClick" text="Start" />
-   <Button fx:id="exitbutton" onAction="#onExitButtonClick" mnemonicParsing="false" prefHeight="29.0" prefWidth="45.0" text="Exit" />
+   <Button fx:id="exitbutton" mnemonicParsing="false" onAction="#onExitButtonClick" prefHeight="29.0" prefWidth="45.0" text="Exit" />
 </VBox>

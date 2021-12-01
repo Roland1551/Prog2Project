@@ -14,12 +14,18 @@ public class MessageUtils {
     public static String getHealMessage(int healPoint, int remainingBandage) {
         return String.format("**Elhasználtál 1 kötszert, ezzel %s életerőt szereztél.\n %s db kötszered maradt.**", healPoint, remainingBandage);
     }
+    public static String getDefendMessagetrue() {
+        return String.format("**Pajzsod mögé bújsz, melyen nem tud ellenfeled átütni. Mit teszel ezután?**");
+    }
+    public static String getDefendMessagefalse(int enemydamage) {
+        return String.format("**Pajzsod mögé bújsz, de nem elég erős, hogy hárítson.\n %s sebzést kapsz.**", enemydamage);
+    }
 
     public static String RunSuccess(String enemyName) {
-        return ("**Sikeresen elmenekültél a(z) %s elől.**");
+        return String.format("**Sikeresen elmenekültél a(z) %s elől.**");
     }
 
     public static String RunFail(String enemyName, int damage) {
-        return ("**Megpróbáltál elmenekülni a(z) %s elől, de sajnos nem sikerült.\n %s életerőt veszítettél.**");
+        return String.format("**Megpróbáltál elmenekülni a(z) %s elől, de sajnos nem sikerült.\n %s életerőt veszítettél.**");
     }
 }

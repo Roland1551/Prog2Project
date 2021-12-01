@@ -13,7 +13,12 @@ public class Enemy {
         health -= damage;
     }
     public int dealDamage() {return random.nextInt(minimumDamage, maximumDamage + 1);}
-
+    public int getMinimumDamage() {
+        return minimumDamage;
+    }
+    public int getMaximumDamage() {
+        return maximumDamage;
+    }
 
 
     public boolean isAlive() {

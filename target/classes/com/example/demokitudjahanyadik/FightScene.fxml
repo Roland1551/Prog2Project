@@ -33,7 +33,7 @@
                </children></StackPane>
             <StackPane prefHeight="64.0" GridPane.rowIndex="1">
                <children>
-                  <Button fx:id="defendbutton" mnemonicParsing="false" text="Defend" visible="false" />
+                  <Button fx:id="defendbutton" onAction="#OnDefendClick" mnemonicParsing="false" text="Defend" visible="false" />
                </children>
             </StackPane>
          </children>
@@ -42,7 +42,7 @@
    <left>
       <VBox alignment="CENTER" prefHeight="363.0" prefWidth="115.0" BorderPane.alignment="CENTER">
          <children>
-            <Label fx:id="playername" text="You" underline="true">
+            <Label fx:id="playername" underline="true">
                <padding>
                   <Insets bottom="20.0" />
                </padding>
@@ -50,27 +50,27 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label fx:id="playerdamage" text="Sebzés:">
+            <Label fx:id="playerdamage">
                <padding>
                   <Insets bottom="5.0" />
                </padding>
             </Label>
-            <Label fx:id="playerhealth" text="Életerő:">
+            <Label fx:id="playerhealth">
                <padding>
                   <Insets bottom="5.0" />
                </padding>
             </Label>
-            <Label fx:id="playerbandage" text="Kötszer:">
+            <Label fx:id="playerbandage">
                <padding>
                   <Insets bottom="5.0" />
                </padding>
             </Label>
-            <Label fx:id="playershield" text="Páncél:">
+            <Label fx:id="playershield">
                <padding>
                   <Insets bottom="5.0" />
                </padding>
             </Label>
-            <Label fx:id="playerrunchance" text="Menekülés:">
+            <Label fx:id="playerrunchance">
                <padding>
                   <Insets bottom="5.0" />
                </padding>
@@ -80,7 +80,7 @@
    <right>
       <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
-            <Label fx:id="enemyname" text="Enemy" underline="true">
+            <Label fx:id="enemyname" underline="true">
                <padding>
                   <Insets bottom="20.0" />
                </padding>
@@ -88,12 +88,12 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label fx:id="enemydamage" text="Sebzés:">
+            <Label fx:id="enemydamage">
                <padding>
                   <Insets bottom="5.0" />
                </padding>
             </Label>
-            <Label fx:id="enemyhealth" text="Életerő:">
+            <Label fx:id="enemyhealth">
                <padding>
                   <Insets bottom="5.0" />
                </padding>
@@ -105,7 +105,7 @@
          <children>
             <Separator layoutX="-6.0" layoutY="345.0" prefHeight="9.0" prefWidth="537.0" />
             <Label fx:id="textaction" layoutX="105.0" layoutY="99.0" prefHeight="250.0" prefWidth="321.0" text="Megtámadod az ellenséget vagy megpróbálsz elmenekülni?" />
-            <Button fx:id="exitbutton" layoutX="210.0" layoutY="281.0" mnemonicParsing="false" onAction="#OnExitClick" prefHeight="49.0" prefWidth="106.0" text="Exit fight" visible="false" />
+            <Button fx:id="exitbutton" layoutX="210.0" layoutY="281.0" mnemonicParsing="false" onAction="#onExitButtonClick" prefHeight="49.0" prefWidth="106.0" text="Exit fight" visible="false" />
          </children>
       </AnchorPane>
    </center>

@@ -7,13 +7,16 @@ import com.example.demokitudjahanyadik.MessageUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.Button;
 import javafx.scene.Scene;
 
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
+import java.net.URL;
 import java.util.Random;
+import java.util.ResourceBundle;
 import java.util.Scanner;
 
 
@@ -55,6 +58,8 @@ public class AdventureController {
 
    public void textRefresh(){
         //PLAYERTEXT
+        playerdamage.setText("Sebzés: ("+ player.getMinimumDamage() +" - "+ player.getMaximumDamage()+")");
+        enemydamage.setText("Sebzés: ("+ enemy.getMinimumDamage() +" - "+ enemy.getMaximumDamage()+")");
         playername.setText(player.getName());
         playerhealth.setText("Életerő: "+player.remainingHealth());
         playerbandage.setText("Kötszer: "+ player.remainingBandage());
@@ -73,10 +78,11 @@ public class AdventureController {
         Scene fight = new Scene(fightLoader.load(), 537, 453);
         Adventure.window.setScene(fight);
         fightsetup();
+
     }
 
    void fightsetup(){
-        enemy = new Enemy("Kígyó", 1, 4, 10);
+        enemy = new Enemy("Java védés", 1, 4, 10);
     }
 
     void exitfight(){
@@ -122,11 +128,20 @@ public class AdventureController {
 
         }
 
-   /* //DEFEND BUTTON
+   //DEFEND BUTTON
     @FXML
     public void OnDefendClick() throws IOException {
-        textaction.setText("WORKS?");
-    }*/
+       if(player.remainingShield()>enemy.getMaximumDamage())
+        textaction.setText(MessageUtils.getDefendMessagetrue());
+       else{
+           textaction.setText(MessageUtils.getDefendMessagefalse(1));
+           player.receiveDamage(1);
+           if (player.isAlive()==false && enemy.isAlive()==true){
+               textaction.setText(MessageUtils.getLoseMessage(enemy.getName()));
+               exitfight();
+       }}
+       textRefresh();
+    }
 
     //HEAL BUTTON
     @FXML
@@ -138,7 +153,7 @@ public class AdventureController {
                 healbutton.setVisible(false);
             textaction.setText(MessageUtils.getHealMessage(player.getBandageLvl(), player.remainingBandage()));
         }
-        textRefresh();
+        textRefresh(); 
     }
 
     //RUN BUTTON
@@ -166,4 +181,9 @@ public class AdventureController {
         Scene hello = new Scene(helloLoader.load(), 320, 240);
         Adventure.window.setScene(hello);
     }
+/*
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+       playerhealth.setText("Életerő:fvbsdf");
+    }*/
 }
